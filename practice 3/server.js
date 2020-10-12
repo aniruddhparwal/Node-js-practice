@@ -34,6 +34,12 @@ app.use(function (req, res, next) {
     );
     next();
 });
+app.get('/', function (req, res) {
+    res.send("First Hello world!!");
+});
+app.post('/', function (req, res) {
+    res.send("Second Hello world!!");
+});
 app.get('/books', (req, res) => {
     res.json(moviesDetails);
     res.sendStatus(200)
