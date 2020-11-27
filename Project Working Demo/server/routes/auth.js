@@ -5,7 +5,12 @@ const User = mongoose.model("User")
 const bcrpt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { JWT_SECRET } = require('../keys')
+const requireLogin = require('../middleware/requireLogin')
 
+
+router.get('/protected', requireLogin, (req, res) => {
+    res.send("hello")
+})
 
 router.post('/signin', (req, res) => {
     const { email, password } = req.body
